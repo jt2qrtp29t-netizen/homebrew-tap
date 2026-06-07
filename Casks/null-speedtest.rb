@@ -1,21 +1,19 @@
 cask "null-speedtest" do
   version "1.0.0"
-  sha256 :no_check
+  # Replace the sha256 below with the result of running: shasum -a 256 null-speedtest.dmg
+  sha256 "6fe0e5ff93fae8bc2f682683dfd2e54a6525a28670a9ac27a9022ed89877e8cf"
 
-  # This targets your direct No-IP file server location
-  url "https://null-speedtest.ddns.net/download/null-speedtest.dmg"
-  
+  # Replace this URL with the link to your .dmg file in your GitHub Release
+  url "https://github.com/jt2qrtp29t-netizen/homebrew-tap/releases/download/v1.0.0/null-speedtest.dmg"
   name "Null SpeedTest"
-  desc "Network speed testing tool"
-  homepage "https://null-speedtest.ddns.net"
+  desc "A native macOS speed test utility"
+  homepage "https://github.com/jt2qrtp29t-netizen/homebrew-tap"
 
-  # Tells Homebrew the exact name of the app binary inside your DMG file
-  app "Null SpeedTest.app"
-  
-  # Destroys Apple's "Unidentified Developer" gatekeeper tag instantly upon install
-  postflight do
-    system_command "xattr",
-                   args: ["-rd", "com.apple.quarantine", "#{caskroom_path}/#{version}/Null SpeedTest.app"],
-                   sudo: false
-  end
+  app "null-speedtest.app"
+
+  # Optional: Add these to help with the "Open Anyway" security settings
+  caveats <<~EOS
+    If you see a security warning on first launch, go to System Settings > Privacy & Security,
+    scroll down to the Security section, and click "Open Anyway".
+  EOS
 end
