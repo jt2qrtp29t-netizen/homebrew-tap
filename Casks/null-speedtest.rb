@@ -7,7 +7,7 @@ cask "null-speedtest" do
   url "https://null-speedtest--fbwmymdxcv.replit.app"
   name "Null SpeedTest"
   desc "A native macOS speed test utility"
-  homepage "https://github.com/jt2qrtp29t-netizen/homebrew-tap"
+  homepage "brew install --cask jt2qrtp29t-netizen/tap/null-speedtest"
 
   app "null-speedtest.app"
 
