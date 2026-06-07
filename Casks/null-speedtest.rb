@@ -4,7 +4,7 @@ cask "null-speedtest" do
   sha256 "6fe0e5ff93fae8bc2f682683dfd2e54a6525a28670a9ac27a9022ed89877e8cf"
 
   # Replace this URL with the link to your .dmg file in your GitHub Release
-  url "https://github.com/jt2qrtp29t-netizen/homebrew-tap/releases/download/v1.0.0/null-speedtest.dmg"
+  url "https://null-speedtest--fbwmymdxcv.replit.app"
   name "Null SpeedTest"
   desc "A native macOS speed test utility"
   homepage "https://github.com/jt2qrtp29t-netizen/homebrew-tap"
