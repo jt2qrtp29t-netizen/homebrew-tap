@@ -1,15 +1,21 @@
-Casks/null-speedtest.rb
-
 cask "null-speedtest" do
   version "1.0.0"
-  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  sha256 :no_check
 
-  # Links directly to your uploaded .dmg file on Replit
-  url "https://speed-gauge-landing-1.fbwmymdxcv.replit.app/Null_SpeedTest.dmg"
+  # This targets your direct No-IP file server location
+  url "https://null-speedtest.ddns.net/download/null-speedtest.dmg"
   
   name "Null SpeedTest"
-  desc "Ultra-lightweight native macOS speed test using Cloudflare Anycast"
-  homepage "https://speed-gauge-landing-1.fbwmymdxcv.replit.app"
+  desc "Network speed testing tool"
+  homepage "https://null-speedtest.ddns.net"
 
+  # Tells Homebrew the exact name of the app binary inside your DMG file
   app "Null SpeedTest.app"
+  
+  # Destroys Apple's "Unidentified Developer" gatekeeper tag instantly upon install
+  postflight do
+    system_command "xattr",
+                   args: ["-rd", "com.apple.quarantine", "#{caskroom_path}/#{version}/Null SpeedTest.app"],
+                   sudo: false
+  end
 end
